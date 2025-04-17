@@ -1,1 +1,9 @@
+# Storing github ssh keys here, don't want to move them elsewhere or accidentally commit them
 gh_key*
+
+# Remove all venv info, it's a local choice to use one anyway, screw up your local python installation at your own risk
+Lib
+Scripts
+Include
+pyvenv.cfg
+
