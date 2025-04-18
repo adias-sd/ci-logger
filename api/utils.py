@@ -16,15 +16,16 @@ def list_files_in_folder(folder: Path):
     """
     files = []
     for file in folder.iterdir():
-        files.append(
-            {
-                "filename": file.name,
-                "size": file.stat().st_size,
-                "modifiedTime": file.stat().st_mtime,
-                "type": "file" if file.is_file() else "folder",
-                "id": path_to_hex(file),
-            }
-        )
+        if file.name.lower() != 'readme.md':
+            files.append(
+                {
+                    "filename": file.name,
+                    "size": file.stat().st_size,
+                    "modifiedTime": file.stat().st_mtime,
+                    "type": "file" if file.is_file() else "folder",
+                    "id": path_to_hex(file),
+                }
+            )
     return files
 
 def get_file_chunk(filepath: Path, size = 50, position = 0):
